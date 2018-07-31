@@ -38,3 +38,106 @@
     }
   }
 }
+
+//Menu Overlay
+.menu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  opacity: 0.9;
+  visibility: hidden;
+
+  .show {
+    visibility: visible;
+  }
+
+  &-branding,
+  &-nav {
+    //sama seperti menu-branding atau menu-nav
+    display: flex;
+    flex-flow: column wrap; //flex akan membuat kolom
+    align-items: center; //akan membuat garis tengah
+    justify-content: center;
+    float: left;
+    width: 50%;
+    height: 100vh; //100 slices
+    overflow: hidden;
+  }
+
+  &-nav {
+    margin: 0;
+    padding: 0;
+    background: darken($primary-color, 5);
+    list-style: none; //tidak ada tanda <ul> <li>
+    transform: translate3d(
+      0,
+      -100%,
+      0
+    ); //transform dari atas kalo 100% dari bawah
+    @include easeOut;
+
+    &.show {
+      //slide in from top
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  //Branding Side
+  &-branding {
+    background: $primary-color;
+    transform: translate3d(0, 100%, 0);
+    @include easeOut;
+
+    &.show {
+      //slide in from top
+      transform: translate3d(0, 0, 0);
+    }
+
+    .potrait {
+      width: 250px;
+      height: 250px;
+      background: url("../img/pass.JPG");
+      background-size: 250px;
+      border-radius: 50%;
+      border: solid 3px $secondary-color;
+    }
+  }
+
+  .nav-item {
+    transform: translate3d(600px, 0, 0);
+    @include easeOut;
+
+    &.show {
+      //slide in from top
+      transform: translate3d(0, 0, 0);
+    }
+
+    &.current > a {
+      color: $secondary-color;
+    }
+  }
+
+  .nav-link {
+    display: inline-block;
+    position: relative;
+    font-size: 30px;
+    text-transform: uppercase;
+    padding: 1rem 0;
+    font-weight: 300;
+    color: #fff;
+    text-decoration: none;
+    @include easeOut;
+
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+}
+
+//delay each nav item slide by 0.1 detik
+@for $x from 1 through 4 {
+  // karena hanya ada 4 nav item about page dll
+  .nav-item:nth-child(#{$x}) {
+    transition-delay: $x * 0.1s; //satu2 di delay
+  }
+}
