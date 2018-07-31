@@ -16,12 +16,12 @@
     @include easeOut;
   }
 
-  //Rotate ito X with menu line
+  //Rotate menjadi X dengan menu line
   &.close {
     transform: rotate(180deg);
 
     .btn-line {
-      //garis putih 1 - Rotate
+      //garis putih 1 - Rotate ke bawah
       &:nth-child(1) {
         transform: rotate(45deg) translate(5px, 5px);
         background: $secondary-color;
@@ -30,7 +30,7 @@
       &:nth-child(2) {
         opacity: 0;
       }
-      //garis putih 3 - Rotate
+      //garis putih 3 - Rotate ke atas
       &:nth-child(3) {
         transform: rotate(-45deg) translate(7px, -6px);
         background: $secondary-color;
