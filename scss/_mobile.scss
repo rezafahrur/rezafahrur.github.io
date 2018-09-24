@@ -1,9 +1,15 @@
 //Widescreen
 @include mediaXL {
+  .projects{
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 //Desktops & Laptops
 @include mediaLg {
+  .projects{
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 //Tablet & Small Laptops
@@ -42,6 +48,10 @@
       background-size: 150px 150px;
       width: 150px;
       height: 150px;
+    }
+
+    .projects{
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
@@ -197,5 +207,9 @@
         }
       }
     }
+  }
+
+  .projects{
+    grid-template-columns: 1fr;
   }
 }
